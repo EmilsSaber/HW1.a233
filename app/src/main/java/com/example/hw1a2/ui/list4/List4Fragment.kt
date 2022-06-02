@@ -1,6 +1,9 @@
 package com.example.hw1a2.ui.list4
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,13 +13,14 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.example.hw1a2.Prefs
 import com.example.hw1a2.R
 import com.example.hw1a2.databinding.List4FragmentBinding
 
-class list4Fragment : Fragment() {
+class List4Fragment : Fragment() {
 
+    private lateinit var mSetting: SharedPreferences
     private lateinit var binding: List4FragmentBinding
-
     private lateinit var launcher: ActivityResultLauncher<Intent>
 
     override fun onCreateView(
@@ -32,6 +36,24 @@ class list4Fragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initLauncher()
         initListener()
+        loaded()
+        saver()
+    }
+
+    @SuppressLint("CommitPrefEdits")
+    private fun saver() {
+        binding.nameEdit.setOnClickListener{
+            mSetting = requireActivity().getPreferences(Context.MODE_PRIVATE)
+            val editor : SharedPreferences.Editor = mSetting.edit()
+            editor.putString("key3", binding.nameEdit.text.toString())
+            editor.apply()
+        }
+    }
+
+    private fun loaded() {              //
+        mSetting = requireActivity().getPreferences(Context.MODE_PRIVATE)
+        val saveText = mSetting.getString("key", "")
+        binding.nameEdit.setText(saveText)
     }
 
     private fun initListener() {
@@ -45,7 +67,6 @@ class list4Fragment : Fragment() {
 
     private fun initLauncher() {
         launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-
             if (it.resultCode == AppCompatActivity.RESULT_OK) {
                 val image = it.data?.data
                 if (image != null) {
@@ -53,8 +74,5 @@ class list4Fragment : Fragment() {
                 }
             }
         }
-
     }
-
-
 }

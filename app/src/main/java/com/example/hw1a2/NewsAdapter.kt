@@ -5,13 +5,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hw1a2.databinding.ItemNewsBinding
+import java.text.SimpleDateFormat
+import java.util.*
 
 class NewsAdapter :
     RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
     private val list = arrayListOf<News>()
 
     var onClick: ((News) -> Unit)? = null
-    var onLongClick: ((Int)  -> Unit)? = null
+    var onLongClick: ((Int) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         return NewsViewHolder(
@@ -22,6 +24,7 @@ class NewsAdapter :
             )
         )
     }
+
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         holder.bind(list[position])
@@ -34,6 +37,7 @@ class NewsAdapter :
 
     }
 
+
     override fun getItemCount() = list.size
 
     fun addItem(news: News?) {
@@ -43,19 +47,27 @@ class NewsAdapter :
         }
     }
 
-     fun deleteItemsAndNotifyAdapter(pos: Int) {
+    fun getTodayDate(): String {//Дата в лист
+        return SimpleDateFormat("hh:mm, dd MMMM, yyyy", Locale.getDefault()).format(Date())
+    }
+
+    fun deleteItemsAndNotifyAdapter(pos: Int) {
         list.removeAt(pos)
         notifyItemRemoved(pos)
     }
+
 
     inner class NewsViewHolder(private var binding: ItemNewsBinding) ://
         RecyclerView.ViewHolder(binding.root) {
         fun bind(news: News) {
             binding.textTitle.text = news.title
-            itemView.setOnClickListener{
+            itemView.setOnClickListener {
                 onClick?.invoke(news)
             }
-            itemView.setOnLongClickListener{
+
+            binding.todayDateTv.text = getTodayDate()
+
+            itemView.setOnLongClickListener {
                 onLongClick?.invoke(adapterPosition)// учесть и не забыть!!!!
                 return@setOnLongClickListener true
             }

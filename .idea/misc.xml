@@ -3,12 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/emil/AndroidStudioProjects/HW1a22/app/src/main/res/layout/activity_main.xml" value="0.21965579710144928" />
+        <entry key="..\:/Users/emil/AndroidStudioProjects/HW1a22/app/src/main/res/layout/fragment_board.xml" value="0.136" />
         <entry key="..\:/Users/emil/AndroidStudioProjects/HW1a22/app/src/main/res/layout/fragment_dashboard.xml" value="0.21965579710144928" />
         <entry key="..\:/Users/emil/AndroidStudioProjects/HW1a22/app/src/main/res/layout/fragment_home.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/emil/AndroidStudioProjects/HW1a22/app/src/main/res/layout/fragment_notifications.xml" value="0.21965579710144928" />
         <entry key="..\:/Users/emil/AndroidStudioProjects/HW1a22/app/src/main/res/layout/fragment_second.xml" value="0.21965579710144928" />
+        <entry key="..\:/Users/emil/AndroidStudioProjects/HW1a22/app/src/main/res/layout/item_board.xml" value="0.264" />
         <entry key="..\:/Users/emil/AndroidStudioProjects/HW1a22/app/src/main/res/layout/item_news.xml" value="0.21965579710144928" />
         <entry key="..\:/Users/emil/AndroidStudioProjects/HW1a22/app/src/main/res/layout/list4_fragment.xml" value="0.21965579710144928" />
+        <entry key="..\:/Users/emil/AndroidStudioProjects/HW1a22/app/src/main/res/layout/time_news.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/emil/AndroidStudioProjects/HW1a22/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

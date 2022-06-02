@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.list4.list4Fragment">
+    tools:context=".ui.list4.List4Fragment">
 
 
     <Button
@@ -16,12 +16,25 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
     <ImageView
         android:id="@+id/image"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="240dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnimage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_width="240dp"
-        android:layout_height="200dp"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:hint="name"
+        android:id="@+id/nameEdit"
+        android:layout_marginTop="12dp"
+        android:layout_width="94dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnimage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

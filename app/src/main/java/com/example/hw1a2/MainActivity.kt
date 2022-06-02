@@ -10,7 +10,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.viewpager.widget.ViewPager
 import com.example.hw1a2.databinding.ActivityMainBinding
+import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,7 +40,9 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-
+            if (!Prefs(this).isShown()) {
+                navController.navigate(R.id.boardFragment)
+            }
 
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             val fragment = arrayListOf(
@@ -52,11 +56,19 @@ class MainActivity : AppCompatActivity() {
             } else {
                 navView.visibility = View.GONE
             }
+
+            if (destination.id == R.id.boardFragment){
+             supportActionBar?.hide()
+            }else {
+                supportActionBar?.show()
+            }
+
         }
     }
             override fun onSupportNavigateUp(): Boolean {
                 return navController.navigateUp()
             }
-        }
+
+}
 
 

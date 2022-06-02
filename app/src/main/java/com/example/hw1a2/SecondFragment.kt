@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
+import androidx.viewpager.widget.ViewPager
 import com.example.hw1a2.databinding.FragmentSecondBinding
+import com.example.hw1a2.ui.Board.BoardAdapter
+import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 
 class SecondFragment : Fragment() {
 
@@ -33,7 +36,17 @@ class SecondFragment : Fragment() {
             save()
         }
         rename()
+//        dots()
     }
+
+//    private fun dots() {
+//        val dotsIndicator = binding.dots_indicator
+//        val viewPager = binding.viewPager
+//        val adapter = BoardAdapter()
+//        viewPager.adapter = adapter
+//        dotsIndicator.setViewPager(viewPager)
+//    }
+
     private fun rename() {
         val editText = arguments?.getString("key1")
         binding.edit.setText(editText)
