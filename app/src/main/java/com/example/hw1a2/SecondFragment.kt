@@ -53,7 +53,8 @@ class SecondFragment : Fragment() {
     }
     private fun save() {
         val text = binding.edit.text.toString()
-        val news = News(text,System.currentTimeMillis())
+        val news = News(0 ,text,System.currentTimeMillis())
+        App.database.newsDao().insert(news)
         val bundle = bundleOf("news" to news)
         parentFragmentManager.setFragmentResult("rk_news" , bundle)
         findNavController().navigateUp()

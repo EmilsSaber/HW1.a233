@@ -22,6 +22,7 @@ class BoardAdapter( val context: Context ,val navController: NavController) :
     RecyclerView.Adapter<BoardAdapter.ViewHolder>() {
 
     var list = arrayListOf("Emil", "Emil", "Emil", "Opa")
+    private val image = arrayListOf(R.raw.one,R.raw.two,R.raw.thee)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -46,6 +47,7 @@ class BoardAdapter( val context: Context ,val navController: NavController) :
         fun bind(position: Int) {
 
             binding.title.text = list[position]
+            binding.lottione.setAnimation(image[position])
 
             if (position == list.lastIndex){
                 binding.btnStart.visibility = View.VISIBLE

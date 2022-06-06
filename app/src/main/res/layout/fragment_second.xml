@@ -7,6 +7,18 @@
     android:padding="16dp"
     tools:context=".SecondFragment">
 
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+
+<!--        <android.inputmethodservice.ExtractEditText-->
+
+<!--            android:id="@+id/edit"-->
+<!--            android:hint="введите новость"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"/>-->
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
+
     <EditText
         android:id="@+id/edit"
         android:layout_width="match_parent"
